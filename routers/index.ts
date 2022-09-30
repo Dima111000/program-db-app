@@ -7,6 +7,7 @@ export default function configure(app: Application) {
     app
         .get('/', (req, res, next) => {
             res.sendFile(resolve(__dirname, '../index.html'));
+            res.json('Server started')
         })
         .use(express.static('public'))
         .use(json())
