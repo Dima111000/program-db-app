@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { application } from 'express';
 import configure from './routers';
 
 const { sequelize } = require('./sequelize/models')
@@ -18,6 +18,10 @@ const connectDb = async () => {
         process.exit(1);
     }
 };
+
+app.get('/', (req, res) => {
+    res.json(`Server st ${port}`)
+});
 
 (async () => {
     await connectDb();
