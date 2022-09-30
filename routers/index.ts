@@ -6,8 +6,8 @@ import api from './api';
 export default function configure(app: Application) {
     app
         .get('/', (req, res, next) => {
-            res.sendFile(resolve(__dirname, '../index.html'));
             res.json('Server started')
+            res.sendFile(resolve(__dirname, '../index.html'));
         })
         .use(express.static('public'))
         .use(json())
